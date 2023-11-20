@@ -30,4 +30,8 @@ public class Module {
             referencedColumnName = "course_id"
     )
     private Course course;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lectureId", referencedColumnName = "lectureId")
+    private Lecture lecture;
 }
