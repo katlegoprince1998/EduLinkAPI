@@ -28,5 +28,14 @@ public class LectureController {
         return lectureService.saveLecture(lecture);
     }
 
+    @GetMapping("/edulinkapi/lecture/firstname/{firstname}")
+    public List<Lecture> findByFirstname(@PathVariable("firstname") String firstname){
+        return lectureService.findByFirstnameIgnoreCase(firstname);
+    }
+
+    @GetMapping("/edulinkapi/lecture/email/{email}")
+    public Lecture findByEmail(@PathVariable("email") String email){
+        return lectureService.getByEmail(email);
+    }
 }
 

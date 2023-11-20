@@ -26,4 +26,14 @@ public class LectureServiceImplementation implements LectureService{
         return lectureRepository.findById(lectureId).get();
     }
 
+    @Override
+    public List<Lecture> findByFirstnameIgnoreCase(String firstname) {
+        return lectureRepository.findByFirstnameIgnoreCase(firstname);
+    }
+
+    @Override
+    public Lecture getByEmail(String email) {
+        return lectureRepository.findByEmailAddress(email);
+    }
+
 }

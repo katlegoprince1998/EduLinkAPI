@@ -9,4 +9,7 @@ public interface LectureService {
     List<Lecture> getAllLectures();
     Lecture getLectureById(Long lectureId);
 
+    List<Lecture> findByFirstnameIgnoreCase(String firstname);
+
+    Lecture getByEmail(String email);
 }
