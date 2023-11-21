@@ -17,7 +17,6 @@ public class ModuleController {
     public List<Module> getAllModules(){
         return moduleService.getAllModules();
     }
-
     @GetMapping("/edulink/module/{id}")
     public Module getModuleById(@PathVariable("id") Long moduleId){
         return moduleService.getModuleById(moduleId);
