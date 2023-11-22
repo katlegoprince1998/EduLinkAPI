@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 
@@ -21,5 +22,31 @@ public class CourseServiceImplementation implements CourseService{
     @Override
     public Course getCourseById(Long courseId) {
         return courseRepository.findById(courseId).get();
+    }
+
+    @Override
+    public void deleteCourseById(Long courseId) {
+        courseRepository.deleteById(courseId);
+    }
+
+    @Override
+    public Course updateCourse(Course course, Long courseId) {
+        Course courseDb = courseRepository.findById(courseId).get();
+
+        if(Objects.nonNull(course.getName()) &&
+                !"".equalsIgnoreCase(course.getName())){
+            courseDb.setName(course.getName());
+        }
+
+        if(Objects.nonNull(course.getCode()) &&
+                !"".equalsIgnoreCase(course.getCode())){
+                courseDb.setCode(course.getCode());
+        }
+        return null;
+    }
+
+    @Override
+    public Course saveCourse(Course course) {
+        return courseRepository.save(course);
     }
 }
