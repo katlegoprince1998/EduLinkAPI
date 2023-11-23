@@ -42,7 +42,11 @@ public class CourseServiceImplementation implements CourseService{
                 !"".equalsIgnoreCase(course.getCode())){
                 courseDb.setCode(course.getCode());
         }
-        return null;
+
+        if(course.getCredit() != 0){
+            courseDb.setCredit(course.getCredit());
+        }
+        return courseRepository.save(courseDb);
     }
 
     @Override

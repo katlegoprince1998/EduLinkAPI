@@ -23,14 +23,13 @@ class CourseRepositoryTest {
     public void saveCourse(){
 
         Department department = Department.builder()
-                .name("Humanities")
-                .code("HH2")
+                .name("Law")
+                .code("Police")
                 .build();
 
          Course course = Course.builder()
-                 .name("Office Admin")
-                 .code("OA25")
-                 .credit(55)
+                 .name("Law Adimin")
+                 .code("LA445")
                  .department(department)
                  .build();
          courseRepository.save(course);
